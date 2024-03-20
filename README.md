@@ -28,26 +28,99 @@ Step 7: Save and run the application.
 
 ## Program:
  ```
-/*
+
 Program to create and design an android application for Sending  SMS using Intent.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by:    HARSHITHA V
+RegisterNumber:  212223230074
+
 ```
 
 ## MainActivity.java:
 
+```
+package com.example.ex_2;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button mbutton= findViewById(R.id.smsButton);
+        mbutton.setOnClickListener(view -> {
+            Intent intent =new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms","9840155373",null));
+            intent.putExtra("sms_body","SMS using Intent");
+            startActivity(intent);
+        });
+
+    }
+}
+```
 
 
 
 ## activity_main.xml:
 
+```
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/smsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/design_default_color_secondary"
+        android:text="send sms"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+</RelativeLayout>
+```
 ## AndroidMainfest.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Ex_2"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+```
 
 ## OUTPUT:
 
+![Screenshot 2024-03-21 051330](https://github.com/harshi1111/SMS_Intent/assets/84671735/ee8169ee-a9e7-4e53-b8fc-cc6fae4e89ec)
+![Screenshot 2024-03-21 051648](https://github.com/harshi1111/SMS_Intent/assets/84671735/8f64666b-a772-4303-8927-a7c22127868c)
 
 
 ## RESULT:
